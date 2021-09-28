@@ -30,4 +30,12 @@ $(document).ready(function(){
         $('.content').hide();  
         $('.IMAGE').show();      
     });
+    $('#LIST').click(function(){
+        $('.content').hide();  
+        $('.LIST').show();      
+    });
+    $('#LINK').click(function(){
+        $('.content').hide();  
+        $('.LINK').show();      
+    });
 });

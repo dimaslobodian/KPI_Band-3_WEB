@@ -67,7 +67,7 @@ h2 {
 	margin-bottom: 150px;
 	margin-right: 20px;
 	float: right;
-	min-width: 800px;
+	width: 1000px;
 	min-height: 800px;
 	padding: 10px;
 	background: #D3D3D3; 
@@ -105,4 +105,7 @@ h2 {
 	-moz-transform: translateX(7px);
 	-ms-transform: translateX(7px);
 	-o-transform: translateX(7px);
+}
+img {
+	max-width: 1000px;
 }
