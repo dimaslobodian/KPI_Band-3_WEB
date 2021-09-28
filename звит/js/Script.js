@@ -1,0 +1,27 @@
+$(document).ready(function(){
+    $('.content').hide();  
+    $('#DescriptionOfTheSubjectEnvironment').click(function(){
+        $('.content').hide();  
+        $('.DescriptionOfTheSubjectEnvironment').show();      
+    });
+    $('#ThemeMeta').click(function(){
+        $('.content').hide();  
+        $('.ThemeMeta').show();      
+    });
+    $('#Conclusions').click(function(){
+        $('.content').hide();  
+        $('.Conclusions').show();      
+    });
+    $('#TABLES').click(function(){
+        $('.content').hide();  
+        $('.TABLES').show();      
+    });
+    $('#FORMS').click(function(){
+        $('.content').hide();  
+        $('.FORMS').show();      
+    });
+    $('#IMAGE').click(function(){
+        $('.content').hide();  
+        $('.IMAGE').show();      
+    });
+});
