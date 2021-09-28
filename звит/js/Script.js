@@ -1,5 +1,11 @@
 $(document).ready(function(){
+    $('.labs').hide();
     $('.content').hide();  
+    //lab1 
+    $('#lab1').click(function(){
+        $('.labs').hide();  
+        $('.lab1').show();      
+    });
     $('#DescriptionOfTheSubjectEnvironment').click(function(){
         $('.content').hide();  
         $('.DescriptionOfTheSubjectEnvironment').show();      

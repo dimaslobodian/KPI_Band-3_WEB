@@ -27,6 +27,10 @@ h2 {
 	color: #E8EFF1;
 	background: #1E1958;
 	transition: .3s;
+	margin-top: 40px;
+	margin-left: 20px;
+	margin-right: 20px;
+	font-size: 12px;
  }
 
  .double-btn:hover {
@@ -53,29 +57,13 @@ h2 {
 	top: 0;
  }
 
- .button-lab{
-	margin-top: 40px;
-	margin-left: 20px;
-	margin-right: 20px;
-	font-size: 12px;
- }
- .button-teams{
-	margin-top: 40px;
-	margin-left: 100px;
-	margin-right: 100px;
- }
-
- .btn-teams {
-	width: 100%;
-	text-align: center;
- }
  .btn-lab {
 	width: 100%;
 	text-align: center;
  }
 
  #id1 {
-	margin-top: 150px;
+
 	margin-bottom: 150px;
 	margin-right: 20px;
 	float: right;
