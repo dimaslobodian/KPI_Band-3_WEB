@@ -62,7 +62,7 @@ h2 {
 	text-align: center;
  }
 
- #id1 {
+ .id1 {
 
 	margin-bottom: 150px;
 	margin-right: 20px;
@@ -73,12 +73,12 @@ h2 {
 	background: #D3D3D3; 
   }
   
-  #id2 {  
+.id2 {  
 	margin-top: 150px;
 	margin-left: 30px;
   }
 
-  .double-menu {
+.double-menu {
 	text-decoration: none;
 	display: inline-block;
 	line-height: 45px;
@@ -96,7 +96,7 @@ h2 {
 	box-shadow: 0 8px 15px rgba(0, 0, 0, .1);
 	transition: .3s;
   }
-  .double-menu:hover {
+.double-menu:hover {
 	background: #BC8F8F;
 	box-shadow: 0 15px 20px hsla(0, 60%, 74%, 0.4);
 	color: #E8EFF1;
