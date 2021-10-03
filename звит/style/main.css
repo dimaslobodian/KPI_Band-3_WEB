@@ -6,13 +6,12 @@ body {
 	text-align: center;
 }
 
-h1 {
+h1,h2 {
 	font-family: 'Comfortaa', cursive;
 }
 
 h2 {
 	font-size: 40px;
-	font-family: 'Comfortaa', cursive;
 }
 
 .double-btn {
@@ -67,7 +66,7 @@ h2 {
 	margin-bottom: 150px;
 	margin-right: 20px;
 	float: right;
-	width: 1000px;
+	width: 60%;
 	min-height: 800px;
 	padding: 10px;
 	background: #D3D3D3; 
@@ -76,6 +75,7 @@ h2 {
 .id2 {  
 	margin-top: 150px;
 	margin-left: 30px;
+	width: 30%;
   }
 
 .double-menu {
