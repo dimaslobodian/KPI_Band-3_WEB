@@ -4,6 +4,8 @@ body {
 
 .heading {
 	text-align: center;
+	box-shadow: 0 8px 15px rgba(0, 0, 0, .1);
+	padding-bottom: 50px;
 }
 
 h1,h2 {
@@ -108,4 +110,7 @@ h2 {
 }
 img {
 	width: 500px;
+}
+.brigade {
+	text-align: right;
 }
