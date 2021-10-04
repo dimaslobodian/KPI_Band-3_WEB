@@ -6,36 +6,77 @@ $(document).ready(function(){
         $('.labs').hide();  
         $('.lab1').show();      
     });
-    $('#DescriptionOfTheSubjectEnvironment').click(function(){
+    $('#DescriptionOfTheSubjectEnvironmentLab1').click(function(){
         $('.content').hide();  
-        $('.DescriptionOfTheSubjectEnvironment').show();      
+        $('.DescriptionOfTheSubjectEnvironmentLab1').show();      
     });
-    $('#ThemeMeta').click(function(){
+    $('#ThemeMetaLab1').click(function(){
         $('.content').hide();  
-        $('.ThemeMeta').show();      
+        $('.ThemeMetaLab1').show();      
     });
-    $('#Conclusions').click(function(){
+    $('#ConclusionsLab1').click(function(){
         $('.content').hide();  
-        $('.Conclusions').show();      
+        $('.ConclusionsLab1').show();      
     });
-    $('#TABLES').click(function(){
+    $('#TABLESLab1').click(function(){
         $('.content').hide();  
-        $('.TABLES').show();      
+        $('.TABLESLab1').show();      
     });
-    $('#FORMS').click(function(){
+    $('#FORMSLab1').click(function(){
         $('.content').hide();  
-        $('.FORMS').show();      
+        $('.FORMSLab1').show();      
     });
-    $('#IMAGE').click(function(){
+    $('#IMAGELab1').click(function(){
         $('.content').hide();  
-        $('.IMAGE').show();      
+        $('.IMAGELab1').show();      
     });
-    $('#LIST').click(function(){
+    $('#LISTLab1').click(function(){
         $('.content').hide();  
-        $('.LIST').show();      
+        $('.LISTLab1').show();      
     });
-    $('#LINK').click(function(){
+    $('#LINKLab1').click(function(){
         $('.content').hide();  
-        $('.LINK').show();      
+        $('.LINKLab1').show();      
     });
+        //lab2 
+        $('#lab2').click(function(){
+            $('.labs').hide();  
+            $('.lab2').show();      
+        });
+        $('#LISTSLab2').click(function(){
+            $('.content').hide();  
+            $('.LISTSLab2').show();      
+        });
+        $('#IDENTIFIERSLab2').click(function(){
+            $('.content').hide();  
+            $('.IDENTIFIERSLab2').show();      
+        });
+        $('#DEVIATIONSLab2').click(function(){
+            $('.content').hide();  
+            $('.DEVIATIONSLab2').show();      
+        });
+        $('#FloatingElementsLab2').click(function(){
+            $('.content').hide();  
+            $('.FloatingElementsLab2').show();      
+        });
+        $('#CONCLUSIONSLab2').click(function(){
+            $('.content').hide();  
+            $('.CONCLUSIONSLab2').show();      
+        });
+        $('#StatementOfTheLabLab2').click(function(){
+            $('.content').hide();  
+            $('.StatementOfTheLabLab2').show();      
+        });
+        $('#TagAndClassSelectorsLab2').click(function(){
+            $('.content').hide();  
+            $('.TagAndClassSelectorsLab2').show();      
+        });
+        $('#PseudoclassesAndPseudoelementsLab2').click(function(){
+            $('.content').hide();  
+            $('.PseudoclassesAndPseudoelementsLab2').show();      
+        });
+        $('#GroupingOfSelectorsLab2').click(function(){
+            $('.content').hide();  
+            $('.GroupingOfSelectorsLab2').show();      
+        });
 });
