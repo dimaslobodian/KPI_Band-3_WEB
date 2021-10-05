@@ -3,3 +3,9 @@
 	padding: 10px;
 	list-style: none outside;
 }
+
+.listdec {
+	margin-left: 40px;
+	padding: 10px;
+	list-style: decimal outside;
+}
