@@ -1,0 +1,595 @@
+function checkbox_variation_price_check(first_pid){
+	var cc = 0;
+	var first_check = jQuery('.wpcb-cross-sells-'+first_pid+' .wpcb-first-checkbox').attr('data-price');
+	var first_stock = jQuery('.wpcb-cross-sells-'+first_pid+' .wpcb-first-checkbox').attr('data-stock');
+	if(first_check == 0 || first_check == '' || first_stock == 0){
+		jQuery('.wpcb-totle-container-'+first_pid+' .wpcb-cart-btn').attr('disabled','disabled');
+		return;
+	}else{
+		jQuery('.wpcb-totle-container-'+first_pid+' .wpcb-cart-btn').removeAttr('disabled');
+	}
+		
+	jQuery('.wpcb-cross-sells-'+first_pid+' .wpcb-checkbox-addon:checked').each(function(){
+		var checkbox_price = jQuery(this).attr('data-price');
+		var checkbox_stock = jQuery(this).attr('data-stock');
+		//console.log(checkbox_price);
+		if(checkbox_price == 0 || checkbox_price == '' || checkbox_stock == 0){
+			cc++;
+		}
+	}).promise().done( function(){
+		if(cc > 0){
+			jQuery('.wpcb-totle-container-'+first_pid+' .wpcb-cart-btn').attr('disabled','disabled');
+		}else{
+			jQuery('.wpcb-totle-container-'+first_pid+' .wpcb-cart-btn').removeAttr('disabled');
+		}
+	});
+}
+
+function wpcb_round(value, exp) {
+	  if (typeof exp === 'undefined' || +exp === 0)
+		return Math.round(value);
+	
+	  value = +value;
+	  exp = +exp;
+	
+	  if (isNaN(value) || !(typeof exp === 'number' && exp % 1 === 0))
+		return NaN;
+	
+	  // Shift
+	  value = value.toString().split('e');
+	  value = Math.round(+(value[0] + 'e' + (value[1] ? (+value[1] + exp) : exp)));
+	
+	  // Shift back
+	  value = value.toString().split('e');
+	  return +(value[0] + 'e' + (value[1] ? (+value[1] - exp) : -exp));
+	}
+
+function check_onload_variation_selected_price(){
+	jQuery('.wpcb-cross-sells').each(function(){
+		var cross_sell_this = jQuery(this);
+		var main_id = cross_sell_this.attr('data-main-pid');
+		//console.log(main_id);
+		jQuery('.wpcb-cross-sells-'+main_id+' .first_variation_dropdown').change();
+		jQuery('.wpcb-cross-sells-'+main_id+' .addon_variation_dropdown').change();
+	});
+	
+}
+
+
+(function($){
+	"use strict";		
+	$('.wpcb-timer').startTimer();
+	var currency_symbol = wpcb_ajax_url.currency_symbol;
+	
+	$('.first_variation_dropdown').change(function(){
+			var chnage_this = $(this);
+			var pid = $(this).parent('td').attr('data-td_pid');
+			var attribut_vari = jQuery.parseJSON($('.prod_variation_'+pid).attr('data-attributes'));
+			//console.log(attribut_vari);
+			var dropdown_count = $('.wpcb_variations_table_'+pid+' .first_variation_dropdown').length;
+			//console.log(dropdown_count);
+			var q = 0;
+			var sel_vari = {};
+			$('.wpcb_variations_table_'+pid+' .first_variation_dropdown').each(function(e){
+				var selected_pid = $(this).children("option:selected").val();
+				var vari_name = $(this).attr('name');
+				sel_vari[vari_name] = selected_pid;
+				if(selected_pid == ''){
+					$('.wpcb-totle-container-'+pid+' .wpcb-cart-btn').attr('data-main-id',pid);
+					$('.wpcb-cross-sells-'+pid+' .wpcb-first-checkbox').attr('data-pid',pid);
+					$('.wpcb-cross-sells-'+pid+' .wpcb-first-checkbox').attr('data-price',0);
+					$('.wpcb-cross-sells-'+pid+' .wpcb-first-checkbox').attr('data-stock',0);
+					$('.woocommerce-variation-'+pid+' .woocommerce-variation-price').html('');
+					$('.woocommerce-variation-'+pid+' .woocommerce-variation-availability').hide();
+					//$('.wpcb-totle-container-'+pid+' .wpcb-cart-btn').attr('disabled','disabled');
+					
+					var addon_total = 0;
+					var first_prod_descount = $('.wpcb-cross-sells-'+pid+' .wpcb-first-prod-descount').val();
+					var descount_type = $('.wpcb-cross-sells-'+pid+' .wpcb-descount-type').val();
+					var descount_type_value = parseFloat($('.wpcb-cross-sells-'+pid+' .wpcb-descount-type-value').val());
+					var first_price = parseFloat($('.wpcb-cross-sells-'+pid+' .wpcb-first-checkbox').attr('data-price'));
+					var addon_count = 0;
+					$('.wpcb-cross-sells-'+pid+' .wpcb-checkbox-addon:checked').each(function(){
+						if($(this).attr('data-price')){
+							addon_total += parseFloat($(this).attr('data-price'));
+							addon_count++;
+						}
+					});
+					
+					var first_descount = 0;
+					var addon_descount = 0;
+					if(descount_type == 'percentage' && first_prod_descount == 'yes' && descount_type_value != 0 && addon_count != 0){
+						first_descount = first_price * (descount_type_value/100);			
+					}											
+					if(descount_type == 'percentage' && descount_type_value != 0){
+						addon_descount = addon_total * (descount_type_value/100);
+					}										
+					if(descount_type == 'fixed' && descount_type_value != 0 && addon_count != 0){
+						addon_descount = descount_type_value;
+					}
+					var total_descount =  parseFloat(first_descount) +  parseFloat(addon_descount);
+					var total_price = parseFloat(first_price) + parseFloat(addon_total) - parseFloat(total_descount);
+					$({ countNum: $('.wpcb-cross-sells-'+pid+' .wpcb-first-price').text()}).animate({countNum: first_price},{
+						duration: 500,
+						easing:'linear',
+						step: function() {
+						  $('.wpcb-cross-sells-'+pid+' .wpcb-first-price').text(wpcb_round(this.countNum,2));
+						},
+						complete: function() {
+						  $('.wpcb-cross-sells-'+pid+' .wpcb-first-price').text(wpcb_round(this.countNum,2));
+						}
+					});
+					$({ countNum: $('.wpcb-cross-sells-'+pid+' .wpcb-addon-price').text()}).animate({countNum: addon_total},{
+						duration: 500,
+						easing:'linear',
+						step: function() {
+						  $('.wpcb-cross-sells-'+pid+' .wpcb-addon-price').text(wpcb_round(this.countNum,2));
+						},
+						complete: function() {
+						  $('.wpcb-cross-sells-'+pid+' .wpcb-addon-price').text(wpcb_round(this.countNum,2));
+						}
+					}); 
+					$({ countNum: $('.wpcb-cross-sells-'+pid+' .wpcb-save-price').text()}).animate({countNum: total_descount},{
+						duration: 500,
+						easing:'linear',
+						step: function() {
+						  $('.wpcb-cross-sells-'+pid+' .wpcb-save-price').text(wpcb_round(this.countNum,2));
+						},
+						complete: function() {
+						  $('.wpcb-cross-sells-'+pid+' .wpcb-save-price').text(wpcb_round(this.countNum,2));
+						}
+					}); 
+					$({ countNum: $('.wpcb-cross-sells-'+pid+' .wpcb-both-price').text()}).animate({countNum: total_price},{
+						duration: 500,
+						easing:'linear',
+						step: function() {
+						  $('.wpcb-cross-sells-'+pid+' .wpcb-both-price').text(wpcb_round(this.countNum,2));
+						},
+						complete: function() {
+						  $('.wpcb-cross-sells-'+pid+' .wpcb-both-price').text(wpcb_round(this.countNum,2));
+						}
+					});
+					
+					checkbox_variation_price_check(pid);
+					return;
+				}
+				q++;
+				if(q == dropdown_count){
+					sel_vari = JSON.stringify(sel_vari);
+					//console.log(sel_vari);
+					$.each(attribut_vari, function() {
+						var element = this;
+						if(element.display_regular_price != element.display_price){
+							var vari_price = parseFloat(element.display_price);
+						}else{
+							var vari_price = parseFloat(element.display_regular_price);
+						}
+						var vari_loop = JSON.stringify(element.attributes);
+						var vari_id = element.variation_id;
+																 
+						 
+						if(sel_vari == vari_loop){
+							//console.log(vari_id);
+							$('.wpcb-totle-container-'+pid+' .wpcb-cart-btn').attr('data-main-id',pid+':'+vari_id);
+							$('.wpcb-cross-sells-'+pid+' .wpcb-first-checkbox').attr('data-pid',pid+':'+vari_id);
+							$('.wpcb-cross-sells-'+pid+' .wpcb-first-checkbox').attr('data-price',vari_price);
+							
+							var addon_total = 0;
+							var first_prod_descount = $('.wpcb-cross-sells-'+pid+' .wpcb-first-prod-descount').val();
+							var descount_type = $('.wpcb-cross-sells-'+pid+' .wpcb-descount-type').val();
+							var descount_type_value = parseFloat($('.wpcb-cross-sells-'+pid+' .wpcb-descount-type-value').val());
+							var first_price = parseFloat($('.wpcb-cross-sells-'+pid+' .wpcb-first-checkbox').attr('data-price'));
+							var addon_count = 0;
+							$('.wpcb-cross-sells-'+pid+' .wpcb-checkbox-addon:checked').each(function(){
+								if($(this).attr('data-price')){
+									addon_total += parseFloat($(this).attr('data-price'));
+									addon_count++;
+								}
+							});
+							
+							var first_descount = 0;
+							var addon_descount = 0;
+							if(descount_type == 'percentage' && first_prod_descount == 'yes' && descount_type_value != 0 && addon_count != 0){
+								first_descount = first_price * (descount_type_value/100);			
+							}											
+							if(descount_type == 'percentage' && descount_type_value != 0){
+								addon_descount = addon_total * (descount_type_value/100);
+							}										
+							if(descount_type == 'fixed' && descount_type_value != 0 && addon_count != 0){
+								addon_descount = descount_type_value;
+							}
+							var total_descount =  parseFloat(first_descount) +  parseFloat(addon_descount);
+							var total_price = parseFloat(first_price) + parseFloat(addon_total) - parseFloat(total_descount);
+							$({ countNum: $('.wpcb-cross-sells-'+pid+' .wpcb-first-price').text()}).animate({countNum: first_price},{
+								duration: 500,
+								easing:'linear',
+								step: function() {
+								  $('.wpcb-cross-sells-'+pid+' .wpcb-first-price').text(wpcb_round(this.countNum,2));
+								},
+								complete: function() {
+								  $('.wpcb-cross-sells-'+pid+' .wpcb-first-price').text(wpcb_round(this.countNum,2));
+								}
+							});
+							$({ countNum: $('.wpcb-cross-sells-'+pid+' .wpcb-addon-price').text()}).animate({countNum: addon_total},{
+								duration: 500,
+								easing:'linear',
+								step: function() {
+								  $('.wpcb-cross-sells-'+pid+' .wpcb-addon-price').text(wpcb_round(this.countNum,2));
+								},
+								complete: function() {
+								  $('.wpcb-cross-sells-'+pid+' .wpcb-addon-price').text(wpcb_round(this.countNum,2));
+								}
+							}); 
+							$({ countNum: $('.wpcb-cross-sells-'+pid+' .wpcb-save-price').text()}).animate({countNum: total_descount},{
+								duration: 500,
+								easing:'linear',
+								step: function() {
+								  $('.wpcb-cross-sells-'+pid+' .wpcb-save-price').text(wpcb_round(this.countNum,2));
+								},
+								complete: function() {
+								  $('.wpcb-cross-sells-'+pid+' .wpcb-save-price').text(wpcb_round(this.countNum,2));
+								}
+							}); 
+							$({ countNum: $('.wpcb-cross-sells-'+pid+' .wpcb-both-price').text()}).animate({countNum: total_price},{
+								duration: 500,
+								easing:'linear',
+								step: function() {
+								  $('.wpcb-cross-sells-'+pid+' .wpcb-both-price').text(wpcb_round(this.countNum,2));
+								},
+								complete: function() {
+								  $('.wpcb-cross-sells-'+pid+' .wpcb-both-price').text(wpcb_round(this.countNum,2));
+								}
+							});
+							
+							$('.woocommerce-variation-'+pid+' .woocommerce-variation-price').html(element.price_html);											
+							if(element.is_in_stock != 1){
+								$('.woocommerce-variation-'+pid+' .woocommerce-variation-availability').show();
+								$('.wpcb-cross-sells-'+pid+' .wpcb-first-checkbox').attr('data-stock',0);
+								//$('.wpcb-totle-container-'+pid+' .wpcb-cart-btn').attr('disabled','disabled');
+							}else{
+								$('.woocommerce-variation-'+pid+' .woocommerce-variation-availability').hide();
+								$('.wpcb-cross-sells-'+pid+' .wpcb-first-checkbox').attr('data-stock',1);
+								//$('.wpcb-totle-container-'+pid+' .wpcb-cart-btn').removeAttr('disabled');
+							}
+						}
+					});
+					
+					checkbox_variation_price_check(pid);
+				}
+			});
+		});
+	
+	$('.addon_variation_dropdown').change(function(){
+		var chnage_this = $(this);
+		var pid = $(this).parent('td').attr('data-td_pid');
+		var first_pid = $(this).parent('td').attr('data-td_first_pid');
+		var attribut_vari = jQuery.parseJSON($('.prod_variation_'+pid).attr('data-attributes'));
+		//console.log(attribut_vari);
+		var dropdown_count = $('.wpcb_variations_table_'+pid+' .addon_variation_dropdown').length;
+		//console.log(dropdown_count);
+		var q = 0;
+		var sel_vari = {};
+		$('.wpcb_variations_table_'+pid+' .addon_variation_dropdown').each(function(e){
+			var selected_pid = $(this).children("option:selected").val();
+			var vari_name = $(this).attr('name');
+			sel_vari[vari_name] = selected_pid;
+			if(selected_pid == ''){
+				//$('.wpcb-totle-container-'+pid+' .wpcb-cart-btn').attr('data-main-id',pid);
+				$('.wpcb-inner-'+pid+' .wpcb-checkbox-addon').attr('data-pid',pid);
+				$('.wpcb-inner-'+pid+' .wpcb-checkbox-addon').attr('data-price',0);
+				$('.wpcb-inner-'+pid+' .wpcb-checkbox-addon').attr('data-stock',0);
+				$('.woocommerce-variation-'+pid+' .woocommerce-variation-price').html('');
+				$('.woocommerce-variation-'+pid+' .woocommerce-variation-availability').hide();
+				//$('.wpcb-totle-container-'+first_pid+' .wpcb-cart-btn').attr('disabled','disabled');
+				
+				var addon_total = 0;
+				var first_prod_descount = $('.wpcb-cross-sells-'+first_pid+' .wpcb-first-prod-descount').val();
+				var descount_type = $('.wpcb-cross-sells-'+first_pid+' .wpcb-descount-type').val();
+				var descount_type_value = parseFloat($('.wpcb-cross-sells-'+first_pid+' .wpcb-descount-type-value').val());
+				var first_price = parseFloat($('.wpcb-cross-sells-'+first_pid+' .wpcb-first-checkbox').attr('data-price'));
+				var addon_count = 0;
+				$('.wpcb-cross-sells-'+first_pid+' .wpcb-checkbox-addon:checked').each(function(){
+					if($(this).attr('data-price')){
+						addon_total += parseFloat($(this).attr('data-price'));
+						addon_count++;
+					}
+				});
+				
+				var first_descount = 0;
+				var addon_descount = 0;
+				if(descount_type == 'percentage' && first_prod_descount == 'yes' && descount_type_value != 0 && addon_count != 0){
+					first_descount = first_price * (descount_type_value/100);			
+				}											
+				if(descount_type == 'percentage' && descount_type_value != 0){
+					addon_descount = addon_total * (descount_type_value/100);
+				}										
+				if(descount_type == 'fixed' && descount_type_value != 0 && addon_count != 0){
+					addon_descount = descount_type_value;
+				}
+				var total_descount =  parseFloat(first_descount) +  parseFloat(addon_descount);
+				var total_price = parseFloat(first_price) + parseFloat(addon_total) - parseFloat(total_descount);
+				$({ countNum: $('.wpcb-cross-sells-'+first_pid+' .wpcb-first-price').text()}).animate({countNum: first_price},{
+					duration: 500,
+					easing:'linear',
+					step: function() {
+					  $('.wpcb-cross-sells-'+first_pid+' .wpcb-first-price').text(wpcb_round(this.countNum,2));
+					},
+					complete: function() {
+					  $('.wpcb-cross-sells-'+first_pid+' .wpcb-first-price').text(wpcb_round(this.countNum,2));
+					}
+				});
+				$({ countNum: $('.wpcb-cross-sells-'+first_pid+' .wpcb-addon-price').text()}).animate({countNum: addon_total},{
+					duration: 500,
+					easing:'linear',
+					step: function() {
+					  $('.wpcb-cross-sells-'+first_pid+' .wpcb-addon-price').text(wpcb_round(this.countNum,2));
+					},
+					complete: function() {
+					  $('.wpcb-cross-sells-'+first_pid+' .wpcb-addon-price').text(wpcb_round(this.countNum,2));
+					}
+				}); 
+				$({ countNum: $('.wpcb-cross-sells-'+first_pid+' .wpcb-save-price').text()}).animate({countNum: total_descount},{
+					duration: 500,
+					easing:'linear',
+					step: function() {
+					  $('.wpcb-cross-sells-'+first_pid+' .wpcb-save-price').text(wpcb_round(this.countNum,2));
+					},
+					complete: function() {
+					  $('.wpcb-cross-sells-'+first_pid+' .wpcb-save-price').text(wpcb_round(this.countNum,2));
+					}
+				}); 
+				$({ countNum: $('.wpcb-cross-sells-'+first_pid+' .wpcb-both-price').text()}).animate({countNum: total_price},{
+					duration: 500,
+					easing:'linear',
+					step: function() {
+					  $('.wpcb-cross-sells-'+first_pid+' .wpcb-both-price').text(wpcb_round(this.countNum,2));
+					},
+					complete: function() {
+					  $('.wpcb-cross-sells-'+first_pid+' .wpcb-both-price').text(wpcb_round(this.countNum,2));
+					}
+				});
+				checkbox_variation_price_check(first_pid);
+				return;
+			}
+			q++;
+			if(q == dropdown_count){
+				sel_vari = JSON.stringify(sel_vari);
+				//console.log(sel_vari);
+				$.each(attribut_vari, function() {
+					var element = this;
+					if(element.display_regular_price != element.display_price){
+						var vari_price = parseFloat(element.display_price);
+					}else{
+						var vari_price = parseFloat(element.display_regular_price);
+					}
+					var vari_loop = JSON.stringify(element.attributes);
+					var vari_id = element.variation_id;
+					
+					
+					 if(sel_vari == vari_loop){
+						//console.log(vari_id);
+						//$('.wpcb-inner-'+pid+' .wpcb-checkbox-addon').attr('data-pid',pid+':'+vari_id);
+						$('.wpcb-inner-'+pid+' .wpcb-checkbox-addon').val(pid+':'+vari_id);
+						$('.wpcb-inner-'+pid+' .wpcb-checkbox-addon').attr('data-price',vari_price);
+						
+						
+						var addon_total = 0;
+						var first_prod_descount = $('.wpcb-cross-sells-'+first_pid+' .wpcb-first-prod-descount').val();
+						var descount_type = $('.wpcb-cross-sells-'+first_pid+' .wpcb-descount-type').val();
+						var descount_type_value = parseFloat($('.wpcb-cross-sells-'+first_pid+' .wpcb-descount-type-value').val());
+						var first_price = parseFloat($('.wpcb-cross-sells-'+first_pid+' .wpcb-first-checkbox').attr('data-price'));
+						var addon_count = 0;
+						$('.wpcb-cross-sells-'+first_pid+' .wpcb-checkbox-addon:checked').each(function(){
+							if($(this).attr('data-price')){
+								addon_total += parseFloat($(this).attr('data-price'));
+								addon_count++;
+							}
+						});
+						
+						var first_descount = 0;
+						var addon_descount = 0;
+						if(descount_type == 'percentage' && first_prod_descount == 'yes' && descount_type_value != 0 && addon_count != 0){
+							first_descount = first_price * (descount_type_value/100);			
+						}											
+						if(descount_type == 'percentage' && descount_type_value != 0){
+							addon_descount = addon_total * (descount_type_value/100);
+						}										
+						if(descount_type == 'fixed' && descount_type_value != 0 && addon_count != 0){
+							addon_descount = descount_type_value;
+						}
+						var total_descount =  parseFloat(first_descount) +  parseFloat(addon_descount);
+						var total_price = parseFloat(first_price) + parseFloat(addon_total) - parseFloat(total_descount);
+						$({ countNum: $('.wpcb-cross-sells-'+first_pid+' .wpcb-first-price').text()}).animate({countNum: first_price},{
+							duration: 500,
+							easing:'linear',
+							step: function() {
+							  $('.wpcb-cross-sells-'+first_pid+' .wpcb-first-price').text(wpcb_round(this.countNum,2));
+							},
+							complete: function() {
+							  $('.wpcb-cross-sells-'+first_pid+' .wpcb-first-price').text(wpcb_round(this.countNum,2));
+							}
+						});
+						$({ countNum: $('.wpcb-cross-sells-'+first_pid+' .wpcb-addon-price').text()}).animate({countNum: addon_total},{
+							duration: 500,
+							easing:'linear',
+							step: function() {
+							  $('.wpcb-cross-sells-'+first_pid+' .wpcb-addon-price').text(wpcb_round(this.countNum,2));
+							},
+							complete: function() {
+							  $('.wpcb-cross-sells-'+first_pid+' .wpcb-addon-price').text(wpcb_round(this.countNum,2));
+							}
+						}); 
+						$({ countNum: $('.wpcb-cross-sells-'+first_pid+' .wpcb-save-price').text()}).animate({countNum: total_descount},{
+							duration: 500,
+							easing:'linear',
+							step: function() {
+							  $('.wpcb-cross-sells-'+first_pid+' .wpcb-save-price').text(wpcb_round(this.countNum,2));
+							},
+							complete: function() {
+							  $('.wpcb-cross-sells-'+first_pid+' .wpcb-save-price').text(wpcb_round(this.countNum,2));
+							}
+						}); 
+						$({ countNum: $('.wpcb-cross-sells-'+first_pid+' .wpcb-both-price').text()}).animate({countNum: total_price},{
+							duration: 500,
+							easing:'linear',
+							step: function() {
+							  $('.wpcb-cross-sells-'+first_pid+' .wpcb-both-price').text(wpcb_round(this.countNum,2));
+							},
+							complete: function() {
+							  $('.wpcb-cross-sells-'+first_pid+' .wpcb-both-price').text(wpcb_round(this.countNum,2));
+							}
+						});
+						
+						$('.woocommerce-variation-'+pid+' .woocommerce-variation-price').html(element.price_html);							
+						if(element.is_in_stock != 1){
+							$('.woocommerce-variation-'+pid+' .woocommerce-variation-availability').show();
+							$('.wpcb-inner-'+pid+' .wpcb-checkbox-addon').attr('data-stock',0);
+							//$('.wpcb-totle-container-'+first_pid+' .wpcb-cart-btn').attr('disabled','disabled');
+						}else{
+							$('.woocommerce-variation-'+pid+' .woocommerce-variation-availability').hide();
+							$('.wpcb-inner-'+pid+' .wpcb-checkbox-addon').attr('data-stock',1);
+							//$('.wpcb-totle-container-'+first_pid+' .wpcb-cart-btn').removeAttr('disabled');
+						}
+					 }
+				});
+				
+				checkbox_variation_price_check(first_pid);
+			}							
+			
+		});
+	});
+	
+	//page onload auto calculation for variation selected product
+	check_onload_variation_selected_price();
+	
+	$('.wpcp-popup-close a,.wpcb-hightlight-mask').click(function(e){
+		e.preventDefault();
+		$('.wpcp-wrap').removeClass('wpcp-wrap');
+		$('.wpcb-hightlight-mask').remove();
+		$('.wpcb-cross-sells').removeClass('wpcb-hight-light-yes');
+	});
+	$(document).keyup(function(e) {
+		 if (e.keyCode == 27) { // escape key maps to keycode `27`
+		 	$('.wpcp-wrap').removeClass('wpcp-wrap');
+			$('.wpcb-hightlight-mask').remove();
+			$('.wpcb-cross-sells').removeClass('wpcb-hight-light-yes');
+		}
+	});
+	
+	
+	$('.wpcb-cart-btn').click(function(e){
+		e.preventDefault();
+		var main_id_cart = $(this).attr('data-main-id');
+		var exp_main_pid = main_id_cart.split(":");
+		main_id_cart = exp_main_pid[0];
+		console.log(main_id_cart);
+		jQuery('.wpcb-cross-sells-'+main_id_cart+' .wpcb-cart-text').css('opacity','0');
+		jQuery('.wpcb-cross-sells-'+main_id_cart+' .wpcp-loader').css('opacity','1');
+		var first_prod_id = $('.wpcb-cross-sells-'+main_id_cart+' .wpcb-first-checkbox').attr('data-pid');
+		var addon_ids = $('.wpcb-cross-sells-'+main_id_cart+' .wpcb-checkbox-addon:checked').map(function(){return this.value}).get();
+		var $thisbutton = $(this);
+		jQuery.ajax({
+			type: 'POST',
+			url: wpcb_ajax_url.url,
+			data:  'action=wpcp_woocommerce_ajax_add_to_cart&product_id='+first_prod_id+'&addon_ids='+addon_ids,
+			success: function(response) {
+				
+				jQuery('.wpcb-cross-sells-'+main_id_cart+' .wpcb-cart-text').css('opacity','1');
+				jQuery('.wpcb-cross-sells-'+main_id_cart+' .wpcb-cart-btn').hide();
+				jQuery('.wpcb-cross-sells-'+main_id_cart+' .wpcp-loader').css('opacity','0');
+				if (response.error & response.product_url) {
+					window.location = response.product_url;
+					return;
+				} else {
+					$(document.body).trigger('added_to_cart', [response.fragments, response.cart_hash, $thisbutton]);
+				}
+
+			}
+		});	
+	});
+	
+	
+
+	$('.wpcb-checkbox').change(function() {
+		var main_id = $(this).attr('data-main-id');
+		checkbox_variation_price_check(main_id);
+		if($(this).prop("checked") == false){
+			$(this).closest('.wpcb-image').addClass('wpcb-opacity');
+		}else{
+			$(this).closest('.wpcb-image').removeClass('wpcb-opacity');
+		}
+		var addon_total = 0;		
+		var first_prod_descount = $('.wpcb-cross-sells-'+main_id+' .wpcb-first-prod-descount').val();
+		var descount_type = $('.wpcb-cross-sells-'+main_id+' .wpcb-descount-type').val();
+		var descount_type_value = parseFloat($('.wpcb-cross-sells-'+main_id+' .wpcb-descount-type-value').val());
+		var first_price = parseFloat($('.wpcb-cross-sells-'+main_id+' .wpcb-first-checkbox').attr('data-price'));
+		var addon_count = 0;
+        $('.wpcb-cross-sells-'+main_id+' .wpcb-checkbox-addon:checked').each(function(){
+			if($(this).attr('data-price')){
+				addon_total += parseFloat($(this).attr('data-price'));
+				addon_count++;
+			}
+		});
+		
+		var first_descount = 0;
+		var addon_descount = 0;
+		if(descount_type == 'percentage' && first_prod_descount == 'yes' && descount_type_value != 0 && addon_count != 0){
+			first_descount = first_price * (descount_type_value/100);			
+		}
+			
+		if(descount_type == 'percentage' && descount_type_value != 0){
+			addon_descount = addon_total * (descount_type_value/100);
+		}
+		
+		if(descount_type == 'fixed' && descount_type_value != 0 && addon_count != 0){
+			addon_descount = descount_type_value;
+		}
+		var total_descount =  parseFloat(first_descount) +  parseFloat(addon_descount);
+		var total_price = parseFloat(first_price) + parseFloat(addon_total) - parseFloat(total_descount);		
+		
+		$({ countNum: $('.wpcb-cross-sells-'+main_id+' .wpcb-first-price').text()}).animate({countNum: first_price},{
+			duration: 500,
+			easing:'linear',
+			step: function() {
+			  $('.wpcb-cross-sells-'+main_id+' .wpcb-first-price').text(wpcb_round(this.countNum,2));
+			},
+			complete: function() {
+			  $('.wpcb-cross-sells-'+main_id+' .wpcb-first-price').text(wpcb_round(this.countNum,2));
+			}
+		}); 
+		$({ countNum: $('.wpcb-cross-sells-'+main_id+' .wpcb-addon-price').text()}).animate({countNum: addon_total},{
+			duration: 500,
+			easing:'linear',
+			step: function() {
+			  $('.wpcb-cross-sells-'+main_id+' .wpcb-addon-price').text(wpcb_round(this.countNum,2));
+			},
+			complete: function() {
+			  $('.wpcb-cross-sells-'+main_id+' .wpcb-addon-price').text(wpcb_round(this.countNum,2));
+			}
+		}); 
+		$({ countNum: $('.wpcb-cross-sells-'+main_id+' .wpcb-save-price').text()}).animate({countNum: total_descount},{
+			duration: 500,
+			easing:'linear',
+			step: function() {
+			  $('.wpcb-cross-sells-'+main_id+' .wpcb-save-price').text(wpcb_round(this.countNum,2));
+			},
+			complete: function() {
+			  $('.wpcb-cross-sells-'+main_id+' .wpcb-save-price').text(wpcb_round(this.countNum,2));
+			}
+		}); 
+		$({ countNum: $('.wpcb-cross-sells-'+main_id+' .wpcb-both-price').text()}).animate({countNum: total_price},{
+			duration: 500,
+			easing:'linear',
+			step: function() {
+			  $('.wpcb-cross-sells-'+main_id+' .wpcb-both-price').text(wpcb_round(this.countNum,2));
+			},
+			complete: function() {
+			  $('.wpcb-cross-sells-'+main_id+' .wpcb-both-price').text(wpcb_round(this.countNum,2));
+			}
+		});
+		
+		$('.wpcb-cross-sells-'+main_id+' .wpcb-addon-totle .wpcb-addon-counter').text(addon_count);
+		$('.wpcb-cross-sells-'+main_id+' .wpcb-cart-btn-counter').text(addon_count+1);
+    });
+		
+})( jQuery);
