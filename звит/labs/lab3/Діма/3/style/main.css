@@ -1,0 +1,125 @@
+body{
+	margin: 0;
+}
+
+h2{
+	color: #ff9900;
+	text-align: center;
+	margin: 0 0 0 0;
+}
+
+h3{
+	color: white;
+	text-align: center;
+	margin: 0 0 0 0;
+}
+
+.header{
+	padding: 20px;
+	background: #292929;
+}
+
+.container{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.menu{
+	padding: 20px 0 20px;
+	background: #292929; 
+	gap: 20px 20px;
+}
+
+.menu div{
+	border: 1px solid #4d4d4d;
+	border-radius: 20px;
+}
+
+.menu div:hover{
+	border-color: #ff9900;
+}
+
+.menu div div{
+	padding: 10px 10px 10px 10px;
+	border-bottom: 0;
+	border-right: 0;
+	border-left: 0;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+.menu img{
+	max-width: 350px;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+}
+
+.details{
+	font-weight: bold;
+	color: white;
+	text-align: center;
+}
+
+.img{
+	margin-top: 40px;
+	padding: 20px 20px 20px 20px;
+	background: #3298f2; 
+	gap: 20px 20px;
+}
+
+.img img{
+	max-width: 290px;
+	border-radius: 25px;
+}
+
+.description{
+	margin-top: 40px;
+}
+
+.description img{
+	max-width: 500px;
+}
+
+.description div{
+	position: relative;
+}
+
+.description div .head{
+	margin-top: 30px;
+	max-width: 500px;
+	position: relative;
+	right: 40px;
+}
+
+.description div .text{
+	margin-left: 10px;
+	max-width: 350px;
+	position: relative;
+	top: 20px;
+	left: 40px;
+	font-size: 16pt;
+}
+
+.footer{
+	margin-top: 30px;
+	background: #ff9900;
+	align-items: center;
+}
+
+.footer div{
+	max-width: 500px;
+}
+
+.footer .id1{
+	font-weight: bold;
+	font-size: 24pt;
+	color: white;
+}
+
+.footer .id2{
+	font-weight: bold;
+	font-size: 16pt;
+	text-align: center;
+	color: #333333;
+}

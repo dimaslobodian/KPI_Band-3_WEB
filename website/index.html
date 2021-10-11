@@ -7,58 +7,78 @@
 	</head>
 	<body>
 		<!-- -->
-		<h1 align=center >BMX SHOP</h1>
+		<a href="index.html"><h1 align=center >BMX SHOP</h1></a>
 		<!--<hr color="black" align="center">-->
 		
-		<table id="menu" border="1" bordercolor="666666" >
-			<tr>
-				<th><h3>Велосипеди BMX</h3></th>
-				<th><h3>Про нас</h3></th>
-				<th><h3>Команда</h3></th>
-				<th><h3>Контакти</h3></th>
-				<th><h3>Спонсори</h3></th>
-			</tr>
-		</table>
-		<p></p>
-		<h3 align=center><b>Велосипеди BMX</b></h3>
-		<table border="0"  width=100%>
-			<tr>
-				<th><a href=bikes/kench_street_cr_mo.html><img src="https://kingsbikes.net/7478-home_default/velosiped-bmx-kench-street-cro-mo-2021-2075-chernyj.jpg" width=250 height=250></a>
-				<p><a href=bikes/kench_street_cr_mo.html>Велосипед BMX Kench Street CRO-MO 2021 20.75 чорний</a></p>
-				</th>
-				
-				<th><a href=bikes/kench_street_pro.html><img src="https://kingsbikes.net/7469-home_default/velosiped-bmx-kench-street-pro-2021-2075-chervonij-metalik.jpg" width=250 height=250></a>
-				<p><a href=bikes/kench_street_pro.html>Велосипед BMX Kench Street PRO 2021 20.75 червоний металік</a></p>
-				</th>
-				
-				<th><a href=bikes/stolen_21_sinner.html><img src="https://kingsbikes.net/7111-home_default/velosiped-bmx-stolen-2021-sinner-fc-xlt-rhd-21-chchernyj-z-lavandovim.jpg" width=250 height=250></a>
-				<p><a href=bikes/stolen_21_sinner.html>Велосипед BMX Stolen 2021 SINNER FC XLT RHD 21 чорний з лавандовим</a></p>
-				</th>
-				
-				<th><a href=bikes/wethepeople_trust_21.html><img src="https://kingsbikes.net/7436-home_default/velosiped-bmx-wethepeople-trust-fc-2021-2075-nefarbovanij-matovij.jpg" width=250 height=250></a>
-				<p><a href=bikes/wethepeople_trust_21.html>Велосипед BMX Wethepeople Trust FC 2021 20.75 нефарбований матовий</a></p>
-				</th>
-				
-			</tr>
-		</table>
+		<div class="container menu">
+				<a href="#">Велосипеди BMX</a>
+				<a href="#">Про нас</a>
+				<a href="#">Команда</a>
+				<a href="#">Контакти</a>
+				<a href="#">Спонсори</a>
+		</div>
 		
-		<hr color="black" align="center">
-		<h3 align=center><b>Контакти</b></h3>
-		<p>Адреса: м. Тернопіль, вул. Замкова 15<br>
-		Телефон: 0501865320<br>
-		Email: info.bmxshop@gmail.com</p>
+		<h3 style="font-weight: bold;">Велосипеди BMX</h3>
+		<div class="container main">
+			<div>
+				<a href=bikes/kench_street_cr_mo.html><img src="https://kingsbikes.net/7478-home_default/velosiped-bmx-kench-street-cro-mo-2021-2075-chernyj.jpg"></a>
+				<div><a href=bikes/kench_street_cr_mo.html>Велосипед BMX Kench Street CRO-MO 2021 20.75 чорний</a></div>
+			</div>
+				
+			<div>	
+				<a href=bikes/kench_street_pro.html><img src="https://kingsbikes.net/7469-home_default/velosiped-bmx-kench-street-pro-2021-2075-chervonij-metalik.jpg"></a>
+				<div><a href=bikes/kench_street_pro.html>Велосипед BMX Kench Street PRO 2021 20.75 червоний металік</a></div>
+			</div>	
+				
+			<div>
+				<a href=bikes/stolen_21_sinner.html><img src="https://kingsbikes.net/7111-home_default/velosiped-bmx-stolen-2021-sinner-fc-xlt-rhd-21-chchernyj-z-lavandovim.jpg"></a>
+				<div><a href=bikes/stolen_21_sinner.html>Велосипед BMX Stolen 2021 SINNER FC XLT RHD 21 чорний з лавандовим</a></div>
+			</div>	
+				
+			<div>
+				<a href=bikes/wethepeople_trust_21.html><img src="https://kingsbikes.net/7436-home_default/velosiped-bmx-wethepeople-trust-fc-2021-2075-nefarbovanij-matovij.jpg"></a>
+				<div><a href=bikes/wethepeople_trust_21.html>Велосипед BMX Wethepeople Trust FC 2021 20.75 нефарбований матовий</a></div>
+			</div>
+		</div>
 		
-		<form name="question" method="post">
-			<p><b>Ваше ім'я:</b><br>
-				<input type="text" size="40"></p>
-			<p><b>Email:</b><br>
-				<input type="text" size="40"></p>
-			<p><b>Питання:</b><br>
-				<input type="text" size="40"></p>
-			<p>Опишіть детальніше:<Br>
-			<textarea name="comment" cols="40" rows="3"></textarea></p>
-			<p><input type="submit" value="Задати питання"></p>
-		</form>
+		<hr>
 		
+		<h3 style="font-weight: bold;">Контакти</h3>
+		<div class="container contacts">
+			<h2 style="margin-bottom: 0;">Адреса:</h2>
+			<h3 style="margin-bottom: 0;">м. Тернопіль, вул. Замкова 15</h3>
+			<h2 style="margin-bottom: 0;">Зв'язок з нами:</h2>
+			<h3 style="margin-bottom: 0;">+38 050 186 53 20 (WhatsApp, Viber, Telegram)</h3>
+			<h3 style="margin-bottom: 0;">info.bmxshop@gmail.com</h3>
+			
+			<form name="question" method="post">
+				<p><b>Ваше ім'я:</b><br>
+					<input type="text" size="40"></p>
+				<p><b>Email:</b><br>
+					<input type="text" size="40"></p>
+				<p><b>Питання:</b><br>
+					<input type="text" size="40"></p>
+				<p>Опишіть детальніше:<Br>
+				<textarea name="comment" cols="40" rows="3"></textarea></p>
+				<p><input type="submit" value="Задати питання"></p>
+			</form>
+		</div>
+		
+		<div class="container footer">
+			<div>Розсилка
+			</div>
+			
+			<div>
+				<form name="question" method="post">
+					<input type="text" name="email" size="18" value="Введіть ваш e-mail">
+					<button type="submit" name="submitNewsletter" >
+						<span>OK</span>
+					</button>
+				</form>
+			</div>
+			
+			<div>Підписуйтесь на наші оновлення
+			</div>
+		</div>
 	</body>
 </html>
