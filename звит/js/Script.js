@@ -80,4 +80,48 @@ $(document).ready(function() {
         $('.GroupingOfSelectorsLab2').show();
     });
     //lab3
+    $('#lab3').click(function() {
+        $('.labs').hide();
+        $('.lab3').show();
+    });
+    $('#StatementOfTheLabLab3').click(function() {
+        $('.content').hide();
+        $('.StatementOfTheLabLab3').show();
+    });
+    $('#AppearanceOfTheLayout3').click(function() {
+        $('.content').hide();
+        $('.AppearanceOfTheLayout3').show();
+    });
+    $('#HTML3').click(function() {
+        $('.content').hide();
+        $('.HTML3').show();
+    });
+    $('#CSS3').click(function() {
+        $('.content').hide();
+        $('.CSS3').show();
+    });
+    $('#PageLayoutWithFloatingBlocksDima3').click(function() {
+        $('.content').hide();
+        $('.PageLayoutWithFloatingBlocksDima3').show();
+    });
+    $('#PageLayoutWithATabDima3').click(function() {
+        $('.content').hide();
+        $('.PageLayoutWithATabDima3').show();
+    });
+    $('#Task3Dima3').click(function() {
+        $('.content').hide();
+        $('.Task3Dima3').show();
+    });
+    $('#HTMLTask3Dima3').click(function() {
+        $('.content').hide();
+        $('.HTMLTask3Dima3').show();
+    });
+    $('#CSSTask3Dima3').click(function() {
+        $('.content').hide();
+        $('.CSSTask3Dima3').show();
+    });
+    $('#CSSPageLayoutWithFloatingBlocksDima3').click(function() {
+        $('.content').hide();
+        $('.CSSPageLayoutWithFloatingBlocksDima3').show();
+    });
 });
