@@ -124,4 +124,12 @@ $(document).ready(function() {
         $('.content').hide();
         $('.CSSPageLayoutWithFloatingBlocksDima3').show();
     });
+    $('#HTMLPageLayoutWithFloatingBlocksDima3').click(function() {
+        $('.content').hide();
+        $('.HTMLPageLayoutWithFloatingBlocksDima3').show();
+    });
+    $('#HTMLPageLayoutWithATabDima3').click(function() {
+        $('.content').hide();
+        $('.HTMLPageLayoutWithATabDima3').show();
+    });
 });
