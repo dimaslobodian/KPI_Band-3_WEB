@@ -100,6 +100,7 @@ $(document).ready(function() {
         $('.content').hide();
         $('.CSS3').show();
     });
+    //Dima
     $('#PageLayoutWithFloatingBlocksDima3').click(function() {
         $('.content').hide();
         $('.PageLayoutWithFloatingBlocksDima3').show();
@@ -132,4 +133,38 @@ $(document).ready(function() {
         $('.content').hide();
         $('.HTMLPageLayoutWithATabDima3').show();
     });
+    //Pasha
+    $('#PageLayoutWithFloatingBlocksPasha3').click(function() {
+        $('.content').hide();
+        $('.PageLayoutWithFloatingBlocksPasha3').show();
+    });
+    $('#PageLayoutWithATabPasha3').click(function() {
+        $('.content').hide();
+        $('.PageLayoutWithATabPasha3').show();
+    });
+    $('#Task3Pasha3').click(function() {
+        $('.content').hide();
+        $('.Task3Pasha3').show();
+    });
+    $('#HTMLTask3Pasha3').click(function() {
+        $('.content').hide();
+        $('.HTMLTask3Pasha3').show();
+    });
+    $('#CSSTask3Pasha3').click(function() {
+        $('.content').hide();
+        $('.CSSTask3Pasha3').show();
+    });
+    $('#CSSPageLayoutWithFloatingBlocksPasha3').click(function() {
+        $('.content').hide();
+        $('.CSSPageLayoutWithFloatingBlocksPasha3').show();
+    });
+    $('#HTMLPageLayoutWithFloatingBlocksPasha3').click(function() {
+        $('.content').hide();
+        $('.HTMLPageLayoutWithFloatingBlocksPasha3').show();
+    });
+    $('#HTMLPageLayoutWithATabPasha3').click(function() {
+        $('.content').hide();
+        $('.HTMLPageLayoutWithATabPasha3').show();
+    });
+
 });
