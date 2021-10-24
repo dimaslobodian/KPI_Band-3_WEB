@@ -1,0 +1,45 @@
+<html lang="en">
+	<head>
+		<title>dima 4</title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+	<script>
+		function InitializeArray(a)
+		{
+			let b=[];
+			let max=Math.max(...a);
+			for(let i=0; i<a.length; i++)
+			{
+				b.push(max*a[i]);
+			}
+			return b;
+		}
+		
+		function Insertion_sort(a)
+		{
+			counter=0
+			for (let j=1; j<a.length; j++)
+			{	
+				key=a[j]
+				i=j-1
+				while (i>=0 && a[i]<key)
+				{
+					counter+=1
+					a[i+1]=a[i]
+					i-=1
+				}
+				a[i+1]=key
+			}
+			return counter
+		}
+		
+		let A=[13,45,86,34,49,23,94,2,85,23];
+		let B=InitializeArray(A);
+		console.log("A = "+A.join(' '));
+		console.log("B = "+B.join(' '));
+		Insertion_sort(B);
+		console.log("B = "+B.join(' '));
+	</script>
+	</body>
+</html>

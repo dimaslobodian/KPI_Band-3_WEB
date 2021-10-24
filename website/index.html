@@ -4,6 +4,7 @@
 		<link rel="stylesheet" type="text/css" href="style/main.css">
 		<title>BMX SHOP</title>
 		<meta charset="utf-8">
+		<script type="text/javascript" src="js/script.js"></script>
 	</head>
 	<body>
 		<!-- -->
@@ -48,19 +49,20 @@
 			<h2 style="margin-bottom: 0;">Адреса:</h2>
 			<h3 style="margin-bottom: 0;">м. Тернопіль, вул. Замкова 15</h3>
 			<h2 style="margin-bottom: 0;">Зв'язок з нами:</h2>
-			<h3 style="margin-bottom: 0;">+38 050 186 53 20 (WhatsApp, Viber, Telegram)</h3>
+			<h3 style="margin-bottom: 0;">
+			<input name="phoneNumber" type="button" onclick="showNumber()" value="Показати номер"></h3>
 			<h3 style="margin-bottom: 0;">info.bmxshop@gmail.com</h3>
 			
 			<form name="question" method="post">
 				<p><b>Ваше ім'я:</b><br>
-					<input type="text" size="40"></p>
+					<input type="text" size="40" placeholder="Діма" required></p>
 				<p><b>Email:</b><br>
-					<input type="text" size="40"></p>
+					<input type="e-mail" size="40" placeholder="Введіть ваш e-mail" required></p>
 				<p><b>Питання:</b><br>
-					<input type="text" size="40"></p>
+					<input type="text" size="40" required></p>
 				<p>Опишіть детальніше:<Br>
 				<textarea name="comment" cols="40" rows="3"></textarea></p>
-				<p><input type="submit" value="Задати питання"></p>
+				<p><input type="submit" value="Задати питання" OnClick="alert('Вашу відповідь записано')"></p>
 			</form>
 		</div>
 		
@@ -69,9 +71,10 @@
 			</div>
 			
 			<div>
-				<form name="question" method="post">
-					<input type="text" name="email" size="18" value="Введіть ваш e-mail">
-					<button type="submit" name="submitNewsletter" >
+				<form name="Newsletter" method="post" action="JavaScript: 
+				result=confirm('Дійсно підписатись на розсилку?'); void(0);">
+					<input type="e-mail" name="email" placeholder="Введіть ваш e-mail">
+					<button type="submit" name="submitNewsletter">
 						<span>OK</span>
 					</button>
 				</form>
