@@ -166,5 +166,42 @@ $(document).ready(function() {
         $('.content').hide();
         $('.HTMLPageLayoutWithATabPasha3').show();
     });
+    //lab4
+    $('#lab4').click(function() {
+        $('.lab4').hide();
+        $('.lab4').show();
+    });
+    $('#StatementOfTheLabLab4').click(function() {
+        $('.content').hide();
+        $('.StatementOfTheLabLab4').show();
+    });
+    $('#URL4').click(function() {
+        $('.content').hide();
+        $('.URL4').show();
+    });
+    $('#handler4').click(function() {
+        $('.content').hide();
+        $('.handler4').show();
+    });
+    $('#SCRIPT4').click(function() {
+        $('.content').hide();
+        $('.SCRIPT4').show();
+    });
+    $('#4ParagraphDima4').click(function() {
+        $('.content').hide();
+        $('.4ParagraphDima4').show();
+    });
+    $('#6ParagraphDima4').click(function() {
+        $('.content').hide();
+        $('.6ParagraphDima4').show();
+    });
+    $('#4ParagraphPasha4').click(function() {
+        $('.content').hide();
+        $('.4ParagraphPasha4').show();
+    });
+    $('#6ParagraphPasha4').click(function() {
+        $('.content').hide();
+        $('.6ParagraphPasha4').show();
+    });
 
 });
