@@ -187,6 +187,7 @@ $(document).ready(function() {
         $('.content').hide();
         $('.SCRIPT4').show();
     });
+    //Dima
     $('#4ParagraphDima4').click(function() {
         $('.content').hide();
         $('.4ParagraphDima4').show();
@@ -195,6 +196,7 @@ $(document).ready(function() {
         $('.content').hide();
         $('.6ParagraphDima4').show();
     });
+    //Pasha
     $('#4ParagraphPasha4').click(function() {
         $('.content').hide();
         $('.4ParagraphPasha4').show();

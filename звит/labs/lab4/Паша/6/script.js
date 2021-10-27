@@ -1,72 +1,58 @@
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 const languages = [{
-        name: 'C',
-        year: 1972
+        name: 'C'
     },
 
     {
-        name: 'C#',
-        year: 2000
+        name: 'C#'
     },
 
     {
-        name: 'C++',
-        year: 1983
+        name: 'C++'
     },
 
     {
-        name: 'Clojure',
-        year: 2007
+        name: 'Clojure'
     },
 
     {
-        name: 'Elm',
-        year: 2012
+        name: 'Elm'
     },
 
     {
-        name: 'Go',
-        year: 2009
+        name: 'Go'
     },
 
     {
-        name: 'Haskell',
-        year: 1990
+        name: 'Haskell'
     },
 
     {
-        name: 'Java',
-        year: 1995
+        name: 'Java'
     },
 
     {
-        name: 'Javascript',
-        year: 1995
+        name: 'Javascript'
     },
 
     {
-        name: 'Perl',
-        year: 1987
+        name: 'Perl'
     },
 
     {
-        name: 'PHP',
-        year: 1995
+        name: 'PHP'
     },
 
     {
-        name: 'Python',
-        year: 1991
+        name: 'Python'
     },
 
     {
-        name: 'Ruby',
-        year: 1995
+        name: 'Ruby'
     },
 
     {
-        name: 'Scala',
-        year: 2003
+        name: 'Scala'
     }
 ];
 
