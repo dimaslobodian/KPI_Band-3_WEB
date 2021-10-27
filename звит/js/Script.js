@@ -168,7 +168,7 @@ $(document).ready(function() {
     });
     //lab4
     $('#lab4').click(function() {
-        $('.lab4').hide();
+        $('.labs').hide();
         $('.lab4').show();
     });
     $('#StatementOfTheLabLab4').click(function() {
