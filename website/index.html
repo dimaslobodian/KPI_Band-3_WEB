@@ -5,14 +5,38 @@
 		<title>BMX SHOP</title>
 		<meta charset="utf-8">
 		<script type="text/javascript" src="js/script.js"></script>
+		
+		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"> </script>
+		<link rel = "stylesheet" href = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+		<script src = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"> </script>
+		
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/solid.css" integrity="sha384-+0VIRx+yz1WBcCTXBkVQYIBVNEFH1eP6Zknm16roZCyeNg2maWEpk/l/KsyFKs7G" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/brands.css" integrity="sha384-1KLgFVb/gHrlDGLFPgMbeedi6tQBLcWvyNUN+YKXbD7ZFbjX6BLpMDf0PJ32XJfX" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/fontawesome.css" integrity="sha384-jLuaxTTBR42U2qJ/pm4JRouHkEDHkVqH0T1nyQXn1mZ7Snycpf6Rl25VBNthU4z0" crossorigin="anonymous">
 	</head>
 	<body>
-		<!-- -->
 		<a href="index.html"><h1 align=center >BMX SHOP</h1></a>
-		<!--<hr color="black" align="center">-->
 		
 		<div class="container menu">
 				<a href="#">Велосипеди BMX</a>
+				<a href="#">Запчастини
+					<!--<ul id="menu" style="list-style: none">
+					<li>
+						<div>Запчастини</div>
+						<ul>
+						<li>
+							<div>Вилка</div>
+						</li>
+						<li>
+							<div>Рама</div>
+						</li>
+						<li>
+							<div>Винос</div>
+						</li>
+						</ul>
+					</li>
+					</ul>-->
+				</a>
 				<a href="#">Про нас</a>
 				<a href="#">Команда</a>
 				<a href="#">Контакти</a>
@@ -52,12 +76,15 @@
 			<h3 style="margin-bottom: 0;">
 			<input name="phoneNumber" type="button" onclick="showNumber()" value="Показати номер"></h3>
 			<h3 style="margin-bottom: 0;">info.bmxshop@gmail.com</h3>
+			<h3><div id="shareBlock"></div></h3>
 			
 			<form name="question" method="post">
 				<p><b>Ваше ім'я:</b><br>
 					<input type="text" size="40" placeholder="Діма" required></p>
 				<p><b>Email:</b><br>
 					<input type="e-mail" size="40" placeholder="Введіть ваш e-mail" required></p>
+				<p title="Ваш вік потрібен нам для складання статистики" style="max-width: 65px"><b>Ваш вік: </b><p id="result">0</p>
+					<div id="slider" style="max-width: 200px"></div></p>
 				<p><b>Питання:</b><br>
 					<input type="text" size="40" required></p>
 				<p>Опишіть детальніше:<Br>
@@ -82,6 +109,11 @@
 			
 			<div>Підписуйтесь на наші оновлення
 			</div>
+			
+			
 		</div>
+		
+		<script src="jquery/jquery.c-share.js"></script>
+		<script src="jquery/script.js"></script>
 	</body>
 </html>

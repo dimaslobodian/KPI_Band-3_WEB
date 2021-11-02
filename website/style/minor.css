@@ -1,11 +1,16 @@
 .list {
-	margin-left: 40px;
 	padding: 10px;
 	list-style: none outside;
 }
 
 .listdec {
-	margin-left: 40px;
 	padding: 10px;
 	list-style: decimal outside;
+}
+
+.container_minor{
+	margin: 0 40px 0 40px;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
 }

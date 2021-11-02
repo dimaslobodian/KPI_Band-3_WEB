@@ -2,24 +2,24 @@
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="../style/minor.css">
+		<link rel="stylesheet" type="text/css" href="../style/main.css">
 		<title>BMX SHOP</title>
 		<meta charset="utf-8">
+		
+		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"> </script>
+		<link rel = "stylesheet" href = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+		<script src = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"> </script>
 	</head>
 	<body>
-		<!-- -->
-		<h1 align=center >BMX SHOP</h1>
-		<hr color="black" align="center">
+		<a href="index.html"><h1 align=center >BMX SHOP</h1></a>
 		
-		<table border="1" bordercolor="666666" bgcolor="cccccc" width=100%>
-			<tr>
-				<th><h3>Велосипеди BMX</h3></th>
-				<th><h3>Про нас</h3></th>
-				<th><h3>Команда</h3></th>
-				<th><h3>Контакти</h3></th>
-				<th><h3>Спонсори</h3></th>
-			</tr>
-		</table>
-		<p></p>
+		<div class="container menu">
+				<a href="#">Велосипеди BMX</a>
+				<a href="#">Про нас</a>
+				<a href="#">Команда</a>
+				<a href="#">Контакти</a>
+				<a href="#">Спонсори</a>
+		</div>
 		
 		<table border="0"  width=100%>
 			<tr>
@@ -33,27 +33,37 @@
 		</table>
 		
 		<hr color="black" align="center">
-		<h3 align=center>Опис</h3>
-		
-		<ul class="list">
-			<li>Рама: Hi-ten стальная рама, длина верхней трубы 19"<br></li>
-			<li>Вилка: Hi-ten Сталь</li>
-			<li>Вынос руля: Алюминий, длина - 50 мм</li>
-			<li>Руль: Сталь, 2-х элементный, высота - 8.25"</li>
-			<li>Рулевая колонка: Неинтегрированная</li>
-			<li>Каретка: Тип-American, насыпной подшипник</li>
-			<li>Система: Cro-mo стальные шатуны, трехэлементная конструкция, длина - 170 мм</li>
-			<li>Педали: пластиковый корпус, стальная ось 1/2"</li>
-			<li>Размер колес в дюймах: 20</li>
-			<li>Передняя втулка: Стальной корпус, насыпной подшипник</li>
-			<li>Задняя втулка: Стальной корпус, драйвер на 9T, насыпные подшипники, ось -10 мм под гайки</li>
-			<li>Обода: Одинарные</li>
-			<li>Покрышки: 20*2.3"</li>
-			<li>Тормозные ручки: Алюминиевые</li>
-			<li>Задний тормоз: U-Brake, алюминиевые рамки</li>
-			<li>Тип тормозов: клещевые</li>
-			<li>Подседельный штырь: Сталь, 200 мм, комбо</li>
-			<li>Седло: BMX Combo</li>
-		</ul>
+		<div  class="container_minor">
+			<div id="accordion">
+				<h3>Опис</h3><!--align=center-->
+				<div>
+					Файний велосипед
+				</div>
+				<h3>Характеристики</h3><!--align=center-->
+				<div>
+					<ul class="list">
+						<li>Рама: Hi-ten стальная рама, длина верхней трубы 19"<br></li>
+						<li>Вилка: Hi-ten Сталь</li>
+						<li>Вынос руля: Алюминий, длина - 50 мм</li>
+						<li>Руль: Сталь, 2-х элементный, высота - 8.25"</li>
+						<li>Рулевая колонка: Неинтегрированная</li>
+						<li>Каретка: Тип-American, насыпной подшипник</li>
+						<li>Система: Cro-mo стальные шатуны, трехэлементная конструкция, длина - 170 мм</li>
+						<li>Педали: пластиковый корпус, стальная ось 1/2"</li>
+						<li>Размер колес в дюймах: 20</li>
+						<li>Передняя втулка: Стальной корпус, насыпной подшипник</li>
+						<li>Задняя втулка: Стальной корпус, драйвер на 9T, насыпные подшипники, ось -10 мм под гайки</li>
+						<li>Обода: Одинарные</li>
+						<li>Покрышки: 20*2.3"</li>
+						<li>Тормозные ручки: Алюминиевые</li>
+						<li>Задний тормоз: U-Brake, алюминиевые рамки</li>
+						<li>Тип тормозов: клещевые</li>
+						<li>Подседельный штырь: Сталь, 200 мм, комбо</li>
+						<li>Седло: BMX Combo</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script src = "../jquery/script.js"> </script>
 	</body>
 </html>
