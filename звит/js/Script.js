@@ -205,5 +205,58 @@ $(document).ready(function() {
         $('.content').hide();
         $('.6ParagraphPasha4').show();
     });
-
+    //lab5
+    $('#lab5').click(function() {
+        $('.labs').hide();
+        $('.lab5').show();
+    });
+    $('#StatementOfTheLabLab5').click(function() {
+        $('.content').hide();
+        $('.StatementOfTheLabLab5').show();
+    });
+    $('#DynamicElements5').click(function() {
+        $('.content').hide();
+        $('.DynamicElements5').show();
+    });
+    $('#SocialNetworkButtons5').click(function() {
+        $('.content').hide();
+        $('.SocialNetworkButtons5').show();
+    });
+    $('#Informers5').click(function() {
+        $('.content').hide();
+        $('.Informers5').show();
+    });
+    $('#PhotoGallery5').click(function() {
+        $('.content').hide();
+        $('.PhotoGallery5').show();
+    });
+    $('#PhotoSlider5').click(function() {
+        $('.content').hide();
+        $('.PhotoSlider5').show();
+    });
+    $('#SliderVideos5').click(function() {
+        $('.content').hide();
+        $('.SliderVideos5').show();
+    });
+    //lab6
+    $('#lab6').click(function() {
+        $('.labs').hide();
+        $('.lab6').show();
+    });
+    $('#StatementOfTheLabLab6').click(function() {
+        $('.content').hide();
+        $('.StatementOfTheLabLab6').show();
+    });
+    $('#WebServer6').click(function() {
+        $('.content').hide();
+        $('.WebServer6').show();
+    });
+    $('#Configuration6').click(function() {
+        $('.content').hide();
+        $('.Configuration6').show();
+    });
+    $('#FeedbackForm6').click(function() {
+        $('.content').hide();
+        $('.FeedbackForm6').show();
+    });
 });
