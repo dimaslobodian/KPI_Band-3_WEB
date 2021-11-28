@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+}
+
+.btn {
+    background-color: #00ff00;
+    border-radius: 20px;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-self: center;
+    font-size: 1rem;
+    padding: 0.8em 2.8em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.btn:hover{
+	border-color: #00ff00; 
+}
+
+.main {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+}
