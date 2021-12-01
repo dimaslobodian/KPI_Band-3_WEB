@@ -259,4 +259,23 @@ $(document).ready(function() {
         $('.content').hide();
         $('.FeedbackForm6').show();
     });
+    //lab7
+    $('#lab7').click(function() {
+        $('.labs').hide();
+        $('.lab7').show();
+    });
+    $('#StatementOfTheLabLab7').click(function() {
+        $('.content').hide();
+        $('.StatementOfTheLabLab7').show();
+    });
+    //Dima
+    $('#BDDima7').click(function() {
+        $('.content').hide();
+        $('.BDDima7').show();
+    });
+    //Pasha
+    $('#BDPasha7').click(function() {
+        $('.content').hide();
+        $('.BDPasha7').show();
+    });
 });
