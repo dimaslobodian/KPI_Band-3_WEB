@@ -268,6 +268,10 @@ $(document).ready(function() {
         $('.content').hide();
         $('.StatementOfTheLabLab7').show();
     });
+    $('#CONCLUSIONSLab7').click(function() {
+        $('.content').hide();
+        $('.CONCLUSIONSLab7').show();
+    });
     //Dima
     $('#BDDima7').click(function() {
         $('.content').hide();
