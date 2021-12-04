@@ -282,4 +282,29 @@ $(document).ready(function() {
         $('.content').hide();
         $('.BDPasha7').show();
     });
+    //lab8
+    $('#lab8').click(function() {
+        $('.labs').hide();
+        $('.lab8').show();
+    });
+    $('#StatementOfTheLabLab8').click(function() {
+        $('.content').hide();
+        $('.StatementOfTheLabLab8').show();
+    });
+    $('#CONCLUSIONSLab8').click(function() {
+        $('.content').hide();
+        $('.CONCLUSIONSLab8').show();
+    });
+    $('#BD8').click(function() {
+        $('.content').hide();
+        $('.BD8').show();
+    });
+    $('#Autorisation8').click(function() {
+        $('.content').hide();
+        $('.Autorisation8').show();
+    });
+    $('#Lang8').click(function() {
+        $('.content').hide();
+        $('.Lang8').show();
+    });
 });
