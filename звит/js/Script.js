@@ -307,4 +307,35 @@ $(document).ready(function() {
         $('.content').hide();
         $('.Lang8').show();
     });
+    //lab9
+    $('#lab9').click(function() {
+        $('.labs').hide();
+        $('.lab9').show();
+    });
+    $('#StatementOfTheLabLab9').click(function() {
+        $('.content').hide();
+        $('.StatementOfTheLabLab9').show();
+    });
+    $('#TaskLab9').click(function() {
+        $('.content').hide();
+        $('.TaskLab9').show();
+    });
+    $('#CompareLab9').click(function() {
+        $('.content').hide();
+        $('.CompareLab9').show();
+    });
+    $('#CONCLUSIONSLab9').click(function() {
+        $('.content').hide();
+        $('.CONCLUSIONSLab9').show();
+    });
+    //Dima
+    $('#PersDima9').click(function() {
+        $('.content').hide();
+        $('.PersDima9').show();
+    });
+    //Pasha
+    $('#PersPasha9').click(function() {
+        $('.content').hide();
+        $('.PersPasha9').show();
+    });
 });
