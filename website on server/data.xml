@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form> 
+    <email>
+        <message>Введіть валідний email</message>
+    </email>
+    <success>
+        <message>Ваша відповідь була записана!</message>
+    </success>
+    <success1>
+        <message>Ви підписалися на розсилку!</message>
+    </success1>
+</form>

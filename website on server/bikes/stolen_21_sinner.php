@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="../style/minor.css">
+		<link rel="stylesheet" type="text/css" href="../style/main.css">
+		<title>BMX SHOP</title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<a href="../index.php"><h1 align=center >BMX SHOP</h1></a>
+		
+		<div class="container menu">
+				<a href="../index.php">Велосипеди BMX</a>
+				<a href="#">Запчастини</a>
+				<a href="#">Про нас</a>
+				<a href="#">Команда</a>
+				<a href="#">Контакти</a>
+				<a href="#">Спонсори</a>
+		</div>
+		
+		<table border="0"  width=100%>
+			<tr>
+				<th><img src="https://kingsbikes.net/7111-home_default/velosiped-bmx-stolen-2021-sinner-fc-xlt-rhd-21-chchernyj-z-lavandovim.jpg" width=500 height=500>
+				</th>
+				
+				<th>Велосипед BMX Stolen 2021 SINNER FC XLT RHD 21 чорний з лавандовим</th>
+				
+				<th>24 621 ГРН</th>
+			</tr>
+		</table>
+		
+		<hr color="black" align="center">
+		<h3 align=center>Опис</h3>
+		
+		<ul type=none>
+			<li>Рама: 100% 4130 ChroMoly Frame w/ "S-Bend" chainstays & Removable Brake Mounts, Frame is Drilled for Gyro Tabs (Tabs not Included)</li>
+			<li>Вилка: 100% 4130 ChroMoly Fork w/ Tapered Legs & One-Piece Steerer w/ Vortex² Topcap</li>
+			<li>Руль: Stolen Trap 4-piece 4- piece (P²) Post-Weld Heat-Treated Chromoly, 9.50"</li>
+			<li>Грипсы: Stolen Hive, 165mm</li>
+			<li>Баренды: Stolen Thermalite</li>
+			<li>Вынос: CNC Machined 6061 Stolen Block, 50mm</li>
+			<li>Рулевая: Stolen Revolver Sealed Integrated w/ 15mm Alloy Bearing Cover</li>
+			<li>Тормозная ручка: APSE Alloy w/ Hinged Clamp</li>
+			<li>Тормоза: APSE Alloy U-brake</li>
+			<li>Шатуны: Stolen Talon Chromoly, 170mm w/ 48 Spline Chromoly Spindle</li>
+			<li>Звезда: Stolen Sumo III, 25T w/ Sumo Thermalite Guard</li>
+			<li>Каретка: Stolen Revolver MID 19mm</li>
+			<li>Педали: Stolen Thermalite w/ Chromoly spindles</li>
+			<li>Цепи: Balland 1/2 link</li>
+			<li>Втулка передняя: Stolen Magnum Sealed Female Axle w/ Stolen Bolts</li>
+			<li>Втулка задняя: Stolen Magnum Sealed Freecoaster 14mm Axle</li>
+			<li>Драйвер: Sealed 9T</li>
+			<li>Обод передний: Stolen LowPro Brakeless (Welded Seam) 36H</li>
+			<li>Обод задний: Stolen LowPro Brakeless (Welded Seam) 36H</li>
+			<li>Седло: Stolen Hive XL Pivotal Seat, embossed</li>
+			<li>Подседельный штырь: AL 6061, 220mm Pivotal post</li>
+			<li>Подседельный зажим: Integrated in frame</li>
+			<li>Покрышка передняя: Stolen Hive LP 2.40″ w/ SuperStick Rubber Compound</li>
+			<li>Покрышка задняя: Stolen Hive LP 2.40″ w/ SuperStick Rubber Compound</li>
+			<li>Вес: 11,2 кг</li>
+			<li>Пеги: нет</li>
+		</ul>
+	</body>
+</html>

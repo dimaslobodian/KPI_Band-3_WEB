@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form> 
+    <users>
+        <name></name>
+    </users>
+    <phone>
+        <length>12</length>
+        <message>Your phone number is not valid</message>
+    </phone>
+    <email>
+        <message>Please provide a valid email</message>
+    </email>
+    <psw>
+        <message1>Password too short, 8 symbols at least!</message1>
+        <message2>Password too long, 20 symbols max!</message2>
+        <message3>Password must include at least one number!</message3>
+        <message4>Password must include at least one letter!</message4>
+        <message5>Password must include at least one CAPS!</message5>
+    </psw>
+    <psw_repeat>
+        <message>Passwords are not same</message>
+    </psw_repeat>
+    <success>
+        <message>Registration was successfull!</message>
+    </success>
+</form>
